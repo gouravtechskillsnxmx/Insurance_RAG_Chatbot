@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Chat</title></head><body style="font-family:Arial;margin:1rem;">
+<h2>Insurance Agent Chatbot</h2>
+<div style="display:flex;gap:2rem">
+  <div style="width:30%"><h3>Lead details (mobile required)</h3><input id="name" placeholder="Full name" style="width:100%"><br><br><input id="email" placeholder="Email" style="width:100%"><br><br><input id="phone" placeholder="Mobile number *" style="width:100%"><br><br><input id="interest" placeholder="Interest (e.g., Term Life)" style="width:100%"><br><br><button id="save">Save locally</button></div>
+  <div style="flex:1"><div id="chat" style="height:60vh;overflow:auto;border:1px solid #ddd;padding:1rem"></div><div style="margin-top:1rem;display:flex;gap:0.5rem"><input id="input" style="flex:1;padding:0.6rem" placeholder="Ask question..."><button id="send">Send</button></div><div id="status" style="margin-top:0.5rem;color:gray"></div></div>
+</div>
+<script>
+let lead = {};
+document.getElementById('save').addEventListener('click', ()=>{lead.name=document.getElementById('name').value;lead.email=document.getElementById('email').value;lead.phone=document.getElementById('phone').value;lead.interest=document.getElementById('interest').value;alert('Lead saved locally. Phone required to send.');});
+function addBubble(txt, cls){const d=document.createElement('div');d.textContent=txt;d.className='bubble '+cls;d.style.padding='0.7rem';d.style.borderRadius='12px';d.style.maxWidth='70%';d.style.margin='0.5rem 0'; if(cls==='user'){d.style.background='#0b6bf0';d.style.color='white';d.style.marginLeft='auto'} else {d.style.background='#eee';d.style.marginRight='auto'} document.getElementById('chat').appendChild(d); d.scrollIntoView();}
+document.getElementById('send').addEventListener('click', async ()=>{const msg=document.getElementById('input').value.trim(); if(!msg) return; if(!lead.phone){alert('Mobile number required.'); return;} addBubble(msg,'user'); document.getElementById('input').value=''; document.getElementById('status').textContent='...thinking'; const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg,lead})}); const data=await res.json(); document.getElementById('status').textContent=''; if(data.error){addBubble('Error: '+data.error,'bot');return;} addBubble(data.answer,'bot');});
+</script></body></html>
