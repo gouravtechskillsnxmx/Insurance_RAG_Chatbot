@@ -1,0 +1,8 @@
+flask==3.0.3
+gunicorn==22.0.0
+python-dotenv==1.0.1
+SQLAlchemy==2.0.32
+openai>=1.0.0
+markdown-it-py==3.0.0
+numpy==2.0.1
+psycopg2-binary==2.9.9
