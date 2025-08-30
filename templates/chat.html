@@ -1,5 +1,6 @@
 
-<!doctype html><html><head><meta charset="utf-8"><title>Chat</title></head><body style="font-family:Arial;margin:1rem;">
+<!doctype html><html><head><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<meta charset="utf-8"><title>Chat</title></head><body style="font-family:Arial;margin:1rem;">
 <h2>Insurance Agent Chatbot</h2>
 <div style="display:flex;gap:2rem">
   <div style="width:30%"><h3>Lead details (mobile required)</h3><input id="name" placeholder="Full name" style="width:100%"><br><br><input id="email" placeholder="Email" style="width:100%"><br><br><input id="phone" placeholder="Mobile number *" style="width:100%"><br><br><input id="interest" placeholder="Interest (e.g., Term Life)" style="width:100%"><br><br><button id="save">Save locally</button></div>
