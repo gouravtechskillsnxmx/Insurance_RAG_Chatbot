@@ -1,9 +1,9 @@
 
 <!doctype html><html><head><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <meta charset="utf-8"><title>Chat</title></head><body style="font-family:Arial;margin:1rem;">
-<h2>Insurance Agent Chatbot</h2>
+<h2>Insurance Chatbot</h2>
 <div style="display:flex;gap:2rem">
-  <div style="width:30%"><h3>Lead details (mobile required)</h3><input id="name" placeholder="Full name" style="width:100%"><br><br><input id="email" placeholder="Email" style="width:100%"><br><br><input id="phone" placeholder="Mobile number *" style="width:100%"><br><br><input id="interest" placeholder="Interest (e.g., Term Life)" style="width:100%"><br><br><button id="save">Save locally</button></div>
+  <div style="width:30%"><h3>Enter Your details (mobile required)</h3><input id="name" placeholder="Full name" style="width:100%"><br><br><input id="email" placeholder="Email" style="width:100%"><br><br><input id="phone" placeholder="Mobile number *" style="width:100%"><br><br><input id="interest" placeholder="Interest (e.g., Term Life)" style="width:100%"><br><br><button id="save">Save locally</button></div>
   <div style="flex:1"><div id="chat" style="height:60vh;overflow:auto;border:1px solid #ddd;padding:1rem"></div><div style="margin-top:1rem;display:flex;gap:0.5rem"><input id="input" style="flex:1;padding:0.6rem" placeholder="Ask question..."><button id="send">Send</button></div><div id="status" style="margin-top:0.5rem;color:gray"></div></div>
 </div>
 <script>
